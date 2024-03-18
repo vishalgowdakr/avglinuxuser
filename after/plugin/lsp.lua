@@ -10,7 +10,7 @@ end)
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { "eslint", "pylsp", "typos_lsp", "bashls", "clangd", "cssls", "unocss", "tailwindcss", "html", "java_language_server", "lua_ls", "tsserver"},
+  ensure_installed = { "rust_analyzer", "eslint", "typos_lsp", "bashls", "clangd", "cssls", "unocss", "tailwindcss", "html",  "lua_ls", "tsserver", "kotlin_language_server",},
   handlers = {
     lsp_zero.default_setup,
   },

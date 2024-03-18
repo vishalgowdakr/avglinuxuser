@@ -1,12 +1,34 @@
-vim.keymap.set("n", "<leader>t", vim.cmd.term)
-vim.keymap.set("n", "<S-h>", vim.cmd.bp)
-vim.keymap.set("n", "<S-l>", vim.cmd.bn)
-vim.keymap.set("n", "w", "<C-w>")
+local vim = vim
+vim.keymap.set("i","<C-j>","<Down><C-y>")
+vim.g.mapleader = " ";
+vim.keymap.set("n", "<leader>t", function()
+    vim.cmd("set splitright")
+    vim.cmd("vsplit")
+    vim.cmd("vertical resize 70")
+    vim.cmd("term")
+end)
+-- move between windows
+vim.keymap.set("n", "<leader>h", "<C-w>h")
+vim.keymap.set("t", "<C-k>k", "<C-\\><C-N><C-w>h")
+vim.keymap.set("n", "<leader>j", "<C-w>j")
+vim.keymap.set("n", "<leader>k", "<C-w>k")
+vim.keymap.set("n", "<leader>l", "<C-w>l")
+
+vim.keymap.set("n", "t", "<C-w>")
 vim.keymap.set("n", "q", vim.cmd.q)
 vim.keymap.set("n", "s", vim.cmd.w)
+-- quit terminal --
+vim.keymap.set("t", "<C-q>", "<C-\\><C-N>:q<CR>")
 
-vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- normal mode in terminal
+vim.keymap.set("t", "<C-\\>", "<C-\\><C-N>")
+vim.keymap.set("n", "<S-h>", vim.cmd.bp)
+vim.keymap.set("n", "<S-l>", vim.cmd.bn)
+
+vim.keymap.set("n", "<leader>pv", function()
+  vim.cmd("Lex")
+  vim.cmd("vertical resize 30");
+end)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -48,10 +70,17 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theavglinuxuser/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- baracket completion
+vim.api.nvim_set_keymap('i', '{', '{}<Esc>ha', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '(', '()<Esc>ha', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[', '[]<Esc>ha', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '"', '""<Esc>ha', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', "'", "''<Esc>ha", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '`', '``<Esc>ha', { noremap = true, silent = true })
