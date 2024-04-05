@@ -13,12 +13,12 @@ return require('packer').startup(function(use)
     use("folke/tokyonight.nvim")
 
     use({
-	  "rose-pine/neovim",
-	  as = "rose-pine",
-	  config = function()
-		  vim.cmd("colorscheme rose-pine")
-	  end
-  })
+        "rose-pine/neovim",
+        as = "rose-pine",
+        config = function()
+            vim.cmd("colorscheme rose-pine")
+            end
+            })
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'theprimeagen/harpoon'
@@ -55,4 +55,11 @@ return require('packer').startup(function(use)
     use 'norcalli/nvim-colorizer.lua'
     use 'ThePrimeagen/vim-be-good'
     use 'frenzyexists/aquarium-vim'
+    use 'vimwiki/vimwiki'
+    use 'alvan/vim-closetag'
+    use 'neoclide/coc-pairs'
+    use {'neoclide/coc.nvim', branch = 'release'}
+    use 'ggandor/leap.nvim'
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
 end)

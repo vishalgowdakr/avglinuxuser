@@ -1,5 +1,6 @@
 local config = {
-    cmd = {'/home/vishal/Downloads/jdt-language-server-latest/bin/jdtls'},
+    cmd = {'/home/vishalgowdakr/Downloads/jdt-language-server-latest/bin/jdtls'},
     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+    filetypes = { 'java' },
 }
 require('jdtls').start_or_attach(config)
